@@ -25,8 +25,10 @@ wp theme install astra --activate --allow-root
 
 wp plugin update --all --allow-root
 
-sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
+PHP_VERSION=$(php -v | head -1 | cut -d' ' -f2 | cut -d'.' -f1,2)
+sed -i "s/listen = \/run\/php\/php${PHP_VERSION}-fpm.sock/listen = 9000/g" /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf
 
 mkdir /run/php
 
-/usr/sbin/php-fpm7.4 -F
+# Usa il comando generico
+php-fpm${PHP_VERSION} -F
