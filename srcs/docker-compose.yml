@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress_data:/var/www/html    #binda volume alla cartella
+      - wordpress_data:/var/www/html
     depends_on:
       - wordpress
   mariadb:
@@ -37,18 +37,18 @@ services:
       - mariadb
     
 
-volumes:    #crea volumi
+volumes:
   mariadb_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/mcamilli/data/mysql   #cartella volume
+      device: /home/mcamilli_user/data/mysql  #ricoradati di cambiare la path sulla vm
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/mcamilli/data/wordpress
+      device: /home/mcamilli_user/data/wordpress #ricordati di cambiare la path sulla vm
       o: bind
 
 networks:
