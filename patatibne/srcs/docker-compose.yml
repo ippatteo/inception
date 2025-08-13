@@ -37,7 +37,7 @@ services:
       - mariadb
     
 
-volumes:    #crea volume
+volumes:    #crea volumi
   mariadb_data:
     driver: local
     driver_opts:
