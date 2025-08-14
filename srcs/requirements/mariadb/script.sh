@@ -43,4 +43,4 @@ chmod -R 755 /var/lib/mysql
 
 # Avvio definitivo
 echo "Avvio MariaDB..."
-exec mysqld_safe --console --skip-networking=0
+exec mysqld --user=mysql --console --skip-networking=0
